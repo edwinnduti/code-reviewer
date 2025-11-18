@@ -39,3 +39,7 @@ main
 # sample test files
 sample.go
 newsample.go
+
+# bin files
+code-reviewer
+code-reviewer.exe

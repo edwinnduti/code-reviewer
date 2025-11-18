@@ -12,7 +12,7 @@
     ```
 ### Run code locally
  ```
- $ git clone https://github.com/code-reviewer/code-reviewer.git 
+ $ git clone https://github.com/edwinnduti/code-reviewer.git 
  $ cd code-reviewer
  $ go mod download
  $ go build main.go -o code-reviewer
@@ -26,7 +26,7 @@ GOOS=windows GOARCH=amd64 go build -o code-reviewer.exe main.go
 
 ### Build on Linux
 ```go
-GOOS=linux GOARCH=amd64 go build -o code-reviewer-lin main.go
+GOOS=linux GOARCH=amd64 go build -o code-reviewer main.go
 ```
 
 Have a day full of ❤️

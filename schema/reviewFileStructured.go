@@ -4,9 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"go/parser"
-	"go/token"
 	"os"
+	"path/filepath"
 
 	"github.com/tmc/langchaingo/llms"
 	"github.com/tmc/langchaingo/prompts"
@@ -16,13 +15,6 @@ func (cr *CodeReviewer) ReviewFileStructured(filename string) (*ReviewResult, er
 	content, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, fmt.Errorf("reading file: %w", err)
-	}
-
-	// Parse for line numbers
-	fset := token.NewFileSet()
-	_, err = parser.ParseFile(fset, filename, content, parser.ParseComments)
-	if err != nil {
-		return nil, fmt.Errorf("parsing Go file: %w", err)
 	}
 
 	template := prompts.NewPromptTemplate(`
@@ -50,9 +42,11 @@ Code to analyze:
 Focus on real issues. Score: 100 = perfect, 0 = many serious issues.`,
 		[]string{"code", "filename"})
 
+	cleanFilename := filepath.ToSlash(filename)
+
 	prompt, err := template.Format(map[string]any{
 		"code":     string(content),
-		"filename": filename,
+		"filename": cleanFilename,
 	})
 	if err != nil {
 		return nil, fmt.Errorf("formatting prompt: %w", err)
