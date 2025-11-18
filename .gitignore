@@ -32,8 +32,8 @@ go.work.sum
 # .vscode/
 
 # mac files
-.DS_Store
+./.DS_Store
 
 # sample test files
-sample.go
-newsample.go
+./sample.go
+./newsample.go
