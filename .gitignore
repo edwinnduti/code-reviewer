@@ -18,22 +18,23 @@ coverage.*
 profile.cov
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
 
 # Go workspace file
 go.work
 go.work.sum
 
 # env file
+.env
 *.env
 
 # Editor/IDE
-# .idea/
-# .vscode/
+.idea/
+.vscode/
 
 # mac files
-./.DS_Store
+.DS_Store
 
 # sample test files
-./sample.go
-./newsample.go
+sample.go
+newsample.go
