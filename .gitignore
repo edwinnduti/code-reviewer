@@ -30,3 +30,10 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# mac files
+.DS_Store
+
+# sample test files
+sample.go
+newsample.go
